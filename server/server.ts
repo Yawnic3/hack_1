@@ -23,7 +23,7 @@ app.post('/api/get-pickup-line', async (req, res) => {
       model: 'gpt-4o-mini',
       messages: [
         { role: 'developer', content: 'You are a hot blonde and helping your computer science nerd, introverted guy friend pick up the chuzz (chopped huzz) ifykyk.' },
-        { role: 'user', content: 'Give me interesting and unique pickup lines. These pickup lines can be anything but they have to be hella rizzy, ifykyk. Do NOT use any pickup line related to magicians or any pickup line you used in the past. Only give me the pickup line and no other yap' },
+        { role: 'user', content: 'Give me interesting and unique pickup lines. These pickup lines can be anything but they have to be hella rizzy, ifykyk. Do NOT use any pickup line related to magicians or any pickup line you used in the past. Only give me the pickup line and no other yap. Only generate me one pickup line.' },
       ],
       store: true,
     });

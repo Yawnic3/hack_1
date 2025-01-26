@@ -1,24 +1,24 @@
+
 import Image from "next/image"
 import Link from "next/link"
+import HeaderCard from "../components/headercard"
 
 
 const datingSites = [
-  { name: "Match.com", url: "https://www.match.com", logo: "/placeholder.svg?height=100&width=200" },
-  { name: "eHarmony", url: "https://www.eharmony.com", logo: "./placeholder.svg?height=100&width=200" },
-  { name: "OkCupid", url: "https://www.okcupid.com", logo: "./placeholder.svg?height=100&width=200" },
-  { name: "Tinder", url: "https://tinder.com", logo: "./placeholder.svg?height=100&width=200" },
-  { name: "Bumble", url: "https://bumble.com", logo: "/placeholder.svg?height=100&width=200" },
-  { name: "Hinge", url: "https://hinge.co", logo: "/placeholder.svg?height=100&width=200" },
+  { name: "Match.com", url: "https://www.match.com", logo: "/images/match.png" },
+  { name: "eHarmony", url: "https://www.eharmony.com", logo: "/images/eharmoney.png" },
+  { name: "OkCupid", url: "https://www.okcupid.com", logo: "/images/okcupid.png" },
+  { name: "Tinder", url: "https://tinder.com", logo: "/images/tinder.png" },
+  { name: "Bumble", url: "https://bumble.com", logo: "/images/bumble.png" },
+  { name: "Hinge", url: "https://hinge.co", logo: "/images/hinge.png" },
 ]
 
 export default function DatingSiteDirectory() {
   return (
     <div className="min-h-screen bg-pink-100">
-      <header className="bg-pink-500 text-white py-6">
-        <div className="container mx-auto px-4">
-          <h1 className="text-3xl font-bold text-center">Dating Site Directory</h1>
-        </div>
-      </header>
+
+<HeaderCard />
+
       <main className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {datingSites.map((site) => (
@@ -42,6 +42,16 @@ export default function DatingSiteDirectory() {
             </Link>
           ))}
         </div>
+      <div className='mt-8'>
+          <Link href='./hotsingles' target="_blank">
+            <Image
+            src={'/images/hotsingles.png'}
+            alt='hot singles in your area picture'
+            width={2000}
+            height={10000}>
+            </Image>
+            </Link>
+      </div>
       </main>
       <footer className="bg-pink-500 text-white py-4 mt-8">
         <div className="container mx-auto px-4 text-center">
