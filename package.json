@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "@types/three": "^0.172.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "lucide-react": "^0.474.0",
+    "openai": "^4.80.1",
+    "three": "^0.172.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
