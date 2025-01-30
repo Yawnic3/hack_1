@@ -11,8 +11,8 @@ export default function InfoPage() {
         <div className="bg-white bg-opacity-90 rounded-lg shadow-xl p-8 max-w-2xl mx-auto">
           <h2 className="text-2xl font-semibold text-rizz-pink-700 mb-4">Who We Are</h2>
           <p className="text-rizz-pink-800 mb-4">
-            At rizz, we're on a mission to help computer science majors navigate the complex algorithm of love. We
-            understand that while you can debug code, debugging your love life might be a bit more challenging. That's
+            At rizz, we&apos;re on a mission to help computer science majors navigate the complex algorithm of love. We
+            understand that while you can debug code, debugging your love life might be a bit more challenging. That&apos;s
             where we come in!
           </p>
           <h2 className="text-2xl font-semibold text-rizz-pink-700 mb-4">Our Services</h2>
@@ -24,9 +24,9 @@ export default function InfoPage() {
           </ul>
           <h2 className="text-2xl font-semibold text-rizz-pink-700 mb-4">Why Choose rizz?</h2>
           <p className="text-rizz-pink-800 mb-4">
-            Because let's face it, you've spent more time with Java than with actual dates. Our team of experts (yes,
-            we've actually talked to girls before) will help you translate your coding skills into dating success.
-            Remember, in love as in programming, it's all about finding the right input to get the desired output!
+            Because let&apos;s face it, you&apos;ve spent more time with Java than with actual dates. Our team of experts (yes,
+            we&apos;ve actually talked to girls before) will help you translate your coding skills into dating success.
+            Remember, in love as in programming, it&apos;s all about finding the right input to get the desired output!
           </p>
           <div className="text-center mt-8">
             <a
