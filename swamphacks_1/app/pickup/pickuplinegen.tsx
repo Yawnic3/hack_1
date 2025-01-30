@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Container, Box, Typography, Button, Card, CardContent } from "@mui/material";
+import { Container, Typography, Button, Card, CardContent } from "@mui/material";
 
 export default function PickUpLineGenerator() {
   const [pickupLine, setPickupLine] = useState("");
@@ -97,7 +97,7 @@ export default function PickUpLineGenerator() {
                 boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
               }}
             >
-              "{pickupLine}"
+              `&quot;`{pickupLine}`&quot;`
             </Typography>
           )}
 
