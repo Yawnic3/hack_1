@@ -1,4 +1,3 @@
-import HeaderCard from "./components/headercard";
 import Home from "./components/HomePage";
 
 
