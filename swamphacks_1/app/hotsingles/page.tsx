@@ -1,66 +1,114 @@
-"use client"; // Ensure this is at the top for Next.js to enable client-side rendering
+import React, { useState } from "react";
+import axios from "axios";
+import { Container, Typography, Button, Card, CardContent } from "@mui/material";
 
-import { Container, Box, Typography, Card, CardContent } from "@mui/material";
+export default function PickUpLineGenerator() {
+  const [pickupLine, setPickupLine] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-export default function AwarenessPage() {
-    return (
-        <Container
+  const fetchPickupLine = async () => {
+    setLoading(true);
+    setError("");
+    try {
+      const response = await axios.post("http://localhost:5000/api/get-pickup-line");
+      setPickupLine(response.data.pickupLine); // Set the fetched pickup line to state
+    } catch (error) {
+      setError("Error fetching pickup line. Please try again.");
+      console.error("Error fetching pickup line:", error);
+    } finally {
+      setLoading(false); // Set loading to false after the request is done
+    }
+  };
+
+  return (
+    <Container
+      sx={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "linear-gradient(135deg, #ff9a9e, #fad0c4)",
+        padding: 3,
+      }}
+    >
+      <Card
+        sx={{
+          maxWidth: 500,
+          width: "100%",
+          textAlign: "center",
+          borderRadius: "15px",
+          boxShadow: "0 8px 24px rgba(0, 0, 0, 0.2)",
+          backgroundColor: "#fff",
+          padding: 3,
+        }}
+      >
+        <CardContent>
+          <Typography
+            variant="h4"
             sx={{
-                minHeight: "100vh",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: "#ffc0cb", // Soft pink background
-                padding: "16px", // Stable padding value
+              fontWeight: "bold",
+              marginBottom: 2,
+              color: "#ff1493",
             }}
-        >
-            <Card
-                sx={{
-                    maxWidth: "600px", // Ensures consistent layout
-                    textAlign: "center",
-                    borderRadius: "20px",
-                    boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
-                    backgroundColor: "#ffffff",
-                    padding: "24px", // Ensures padding stays consistent
-                }}
+          >
+            Pickup Line Generator
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              marginBottom: 3,
+              color: "#666",
+            }}
+          >
+            Press the button to get a fun pickup line!
+          </Typography>
+
+          {/* Button to trigger the API call */}
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={fetchPickupLine}
+            disabled={loading}
+            sx={{
+              textTransform: "none",
+              fontSize: "16px",
+              backgroundColor: "#ff1493",
+              "&:hover": {
+                backgroundColor: "#ff69b4",
+              },
+              marginBottom: 3,
+            }}
+          >
+            {loading ? "Loading..." : "Get Pickup Line"}
+          </Button>
+
+          {/* Display the pickup line or error message */}
+          {pickupLine && (
+            <Typography
+              variant="h6"
+              align="center"
+              sx={{
+                color: "#333",
+                fontStyle: "italic",
+                padding: 2,
+                backgroundColor: "#f8f8f8",
+                borderRadius: "10px",
+                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+              }}
             >
-                <CardContent>
-                    <Typography
-                        variant="h3"
-                        component="h1" // Ensure semantic tag consistency
-                        sx={{
-                            color: "#ff1493",
-                            fontWeight: "bold",
-                            marginBottom: "16px",
-                        }}
-                    >
-                        🚨 Beware of Scams! 🚨
-                    </Typography>
-                    <Typography
-                        variant="h5"
-                        component="p" // Proper semantics
-                        sx={{
-                            color: "#333",
-                            marginBottom: "24px",
-                        }}
-                    >
-                        "Hot Singles in Your Area" messages are often phishing scams. 
-                        They aim to steal your personal information or trick you into sending money.
-                    </Typography>
-                    <Box
-                        sx={{
-                            backgroundColor: "#ff1493",
-                            color: "#fff",
-                            padding: "16px",
-                            borderRadius: "10px",
-                            fontSize: "20px",
-                            fontWeight: "500",
-                        }}
-                    >
-                        Don't fall for it! Stay safe online, and verify the source of any suspicious messages.
-                    </Box>
-                </CardContent>
-            </Card>
-        </Container>
-    );
+              `&quot;`{pickupLine}`&quot;`
+            </Typography>
+          )}
+
+          {/* Show error message if any */}
+          {error && (
+            <Typography variant="body1" color="error" align="center" sx={{ marginTop: 2 }}>
+              {error}
+            </Typography>
+          )}
+        </CardContent>
+      </Card>
+    </Container>
+  );
 }
